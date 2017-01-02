@@ -47,6 +47,12 @@ ENDIF(MSVC)
 IF(BUILD_EXAMPLES)
 	ADD_EXECUTABLE(${TARGET_TARGETNAME_VIEWER} viewerexample.cpp)
 	TARGET_LINK_LIBRARIES(${TARGET_TARGETNAME_VIEWER} ${TARGET_LIBRARYNAME})
+
+	ADD_EXECUTABLE(EarthExample planets.cpp earthexample.cpp)
+	TARGET_LINK_LIBRARIES(EarthExample ${TARGET_LIBRARYNAME})
+
+	ADD_EXECUTABLE(TestPlanets planets.cpp testplanets.cpp)
+	TARGET_LINK_LIBRARIES(TestPlanets ${TARGET_LIBRARYNAME})
 ENDIF(BUILD_EXAMPLES)
 
 ####################################################################
@@ -74,8 +80,6 @@ IF(MSVC)
 		ELSE (OSG_THIRD_PARTY_DIR)
 			MESSAGE("Warning: OpenSceneGraph 3rd Party Directory not found.")
 		ENDIF(OSG_THIRD_PARTY_DIR)
-
-
 	ENDIF (OPENSCENEGRAPH_FOUND)
 ENDIF(MSVC)
 
